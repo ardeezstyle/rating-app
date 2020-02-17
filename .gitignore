@@ -10,6 +10,12 @@
 # dependencies
 /node_modules
 
+# lock file
+package-lock.json
+
+# Mock Data
+rating-system-675db.json
+
 # profiling files
 chrome-profiler-events.json
 speed-measure-plugin.json

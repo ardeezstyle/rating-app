@@ -1,0 +1,27 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h1>Login</h1>
+      <div class="status-message" *ngIf="isWrongCredentials">Wrong email id and password combination. Please try with correct email id and password.</div>
+    </div>
+
+    <!-- Login Form -->
+    <form (submit)="login(f)" #f="ngForm">
+      <input type="text" id="email" class="fadeIn second" name="email" placeholder="email" ngModel/>
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" ngModel/>
+      <button type="submit" class="fadeIn fourth">Login</button>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
+
+<button type="button" name="button" class="btn btn-primary" (click)="login()">Login</button>

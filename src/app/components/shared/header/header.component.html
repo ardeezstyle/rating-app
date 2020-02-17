@@ -1,0 +1,97 @@
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark" *ngIf="isUnauthorized">
+  <a class="navbar-brand" routerLink="/">Rating System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLink="home" routerLinkActive="active">
+        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLink="list-property" routerLinkActive="active">
+        <a class="nav-link">List Your Property</a>
+      </li>
+      <li class="nav-item" routerLink="login" routerLinkActive="active">
+        <a class="nav-link">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark" *ngIf="isAdmin">
+  <a class="navbar-brand" routerLink="/">Rating System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLink="/" routerLinkActive="active">
+        <a class="nav-link">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLink="owners" routerLinkActive="active">
+        <a class="nav-link">Owners <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLink="customers" routerLinkActive="active">
+        <a class="nav-link">Customers <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item" (click)="logout()">
+        <a class="nav-link">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark" *ngIf="isOwner">
+  <a class="navbar-brand" routerLink="/">Rating System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLink="" routerLinkActive="active">
+        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLink="home" routerLinkActive="active">
+        <a class="nav-link">Centers <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLink="home" routerLinkActive="active">
+        <a class="nav-link">Users <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLink="list-property" routerLinkActive="active">
+        <a class="nav-link">Add New Property</a>
+      </li>
+      <li class="nav-item" (click)="logout()">
+        <a class="nav-link">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark" *ngIf="isCustomer">
+  <a class="navbar-brand" routerLink="/">Rating System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLink="" routerLinkActive="active">
+        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLink="home" routerLinkActive="active">
+        <a class="nav-link">Ratings <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item" (click)="logout()">
+        <a class="nav-link">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
