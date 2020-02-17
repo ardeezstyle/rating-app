@@ -29,7 +29,6 @@ import { HeaderComponent } from './components/shared/header/header.component';
     HttpClientModule,
     IndexModule,
     AppRoutingModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

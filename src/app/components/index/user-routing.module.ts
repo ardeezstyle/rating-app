@@ -6,21 +6,35 @@ import { OwnerComponent } from './owner/owner.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AuthGuard } from 'src/app/services/auth.guard';
 import { AuthDataResolverService } from 'src/app/services/auth-data-resolver.service';
+import { ProfileComponent } from './owner/profile/profile.component';
+import { CentersComponent } from './owner/centers/centers.component';
+import { CommonModule } from '@angular/common';
 
 const index_routes: Routes = [
-  {path: 'page', component: IndexComponent,
-  canActivate: [AuthGuard],
-  resolve: {user: AuthDataResolverService},
-  children: [
-    {path: 'admin', component: AdminComponent},
-    {path: 'owner', component: OwnerComponent},
-    {path: 'customer', component: CustomerComponent}
-  ]}
+  {
+    path: 'page',
+    component: IndexComponent,
+    canActivate: [AuthGuard],
+    resolve: {user: AuthDataResolverService},
+    children: [
+      {path: 'admin', component: AdminComponent},
+      {
+        path: 'owner', component: OwnerComponent, children: [
+          {path: 'centers', component: CentersComponent},
+          {path: 'profile', component: ProfileComponent},
+          {path: 'users', component: CustomerComponent}
+        ]
+      },
+      {path: 'customer', component: CustomerComponent}
+    ]
+  }
 ];
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forChild(index_routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(index_routes)],
   exports: [RouterModule]
 })
 export class UserRoutingModule { }

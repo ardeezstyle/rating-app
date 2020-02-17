@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent implements OnInit {
   isAdmin: boolean;
   isOwner: boolean;
   isCustomer: boolean;
@@ -27,17 +27,13 @@ export class HeaderComponent implements OnInit, OnChanges {
           this.isUnauthorized = !this.as.isAuthorised();
 
 
-          console.log('this.isAdmin', this.isAdmin);
-          console.log('this.isOwner', this.isOwner);
-          console.log('this.isCustomer', this.isCustomer);
-          console.log('this.isUnauthorized', this.isUnauthorized);
+          // console.log('this.isAdmin', this.isAdmin);
+          // console.log('this.isOwner', this.isOwner);
+          // console.log('this.isCustomer', this.isCustomer);
+          // console.log('this.isUnauthorized', this.isUnauthorized);
         }
     });
 
-
-  }
-
-  ngOnChanges() {
 
   }
 
