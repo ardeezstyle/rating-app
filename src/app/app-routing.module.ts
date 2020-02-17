@@ -6,6 +6,8 @@ import { PropertyListComponent } from './components/property-list/property-list.
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginComponent } from './components/login/login.component';
 import { IndexComponent } from './components/index/index.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthDataResolverService } from './services/auth-data-resolver.service';
 
 
 const routes: Routes = [
@@ -13,7 +15,7 @@ const routes: Routes = [
   {path: 'enroll', component: EnrollComponent},
   {path: 'list-property', component: PropertyListComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'page', component: IndexComponent},
+  {path: 'page', component: IndexComponent, canActivate: [AuthGuard], resolve: {user: AuthDataResolverService},},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 ];

@@ -6,12 +6,15 @@ import { CentersComponent } from './centers/centers.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { CenterComponent } from './centers/center/center.component';
+import { OwnerRoutingModule } from './owner-routing.module';
+import { PropertyComponent } from './property/property.component';
 
 
 @NgModule({
-  declarations: [OwnerComponent, ProfileComponent, CentersComponent, UsersComponent, UserComponent, CenterComponent],
+  declarations: [OwnerComponent, ProfileComponent, CentersComponent, UsersComponent, UserComponent, CenterComponent, PropertyComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    OwnerRoutingModule
   ],
   exports: [OwnerComponent, ProfileComponent, CentersComponent, UsersComponent, UserComponent, CenterComponent]
 })

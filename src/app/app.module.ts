@@ -12,6 +12,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { IndexModule } from './components/index/index.module';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/shared/header/header.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HeaderComponent } from './components/shared/header/header.component';
     EnrollComponent,
     PropertyListComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoadingComponent
   ],
   imports: [
     FormsModule,

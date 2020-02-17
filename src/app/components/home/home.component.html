@@ -1,61 +1,35 @@
-
-
-
 <div class="content">
   <div class="row" style="margin-bottom: 10px">
     <div class="offset-md-2 col-md-8">
       <div id="custom-search-input">
-        <div class="input-group">
-            <input type="text" class="search-query form-control" placeholder="Search" />
+        <form class="input-group" #f="ngForm" (submit)="searchCenters(f)">
+            <input type="text" class="search-query form-control" placeholder="Search" name="search" id="search" ngModel/>
             <span class="input-group-btn">
-                <button type="button" disabled>
+                <button type="submit">
                     <span class="fa fa-search"></span>
                 </button>
             </span>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 
-  <div class="row">
-      <div class="col-md-4">
-          <div class="card-box">
-              <div class="card-title">
-                  <h2>Lorem ipsum dolor si.</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, </p>
-              </div>
-              <div class="card-link">
-                  <a href="" class="c-link">Learn More
-                      <i class="fa fa-angle-right"></i>
-                  </a>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-4">
-          <div class="card-box">
-              <div class="card-title">
-                  <h2>Lorem ipsum dolor si.</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, </p>
-              </div>
-              <div class="card-link">
-                  <a href="" class="c-link">Learn More
-                      <i class="fa fa-angle-right"></i>
-                  </a>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-4">
-          <div class="card-box">
-              <div class="card-title">
-                  <h2>Lorem ipsum dolor si.</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, </p>
-              </div>
-              <div class="card-link">
-                  <a href="" class="c-link">Learn More
-                      <i class="fa fa-angle-right"></i>
-                  </a>
-              </div>
-          </div>
-      </div>
+  <div class="row" *ngIf="isloading">
+    <app-loading></app-loading>
+  </div>
+  <div class="row" *ngIf="!isloading">
+    <div class="col-md-4" *ngFor="let center of centers; let i=index">
+        <div class="card-box">
+            <div class="card-title">
+                <h2>{{center.name}}</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, </p>
+            </div>
+            <div class="card-link">
+                <a routerLink="/enroll" class="c-link">Enroll
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
   </div>
 </div>

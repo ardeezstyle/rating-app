@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserRoutingModule } from './user-routing.module';
 import { IndexComponent } from './index.component';
 import { CustomerModule } from './customer/customer.module';
 import { OwnerModule } from './owner/owner.module';
@@ -12,8 +11,7 @@ import { AdminModule } from './admin/admin.module';
     CommonModule,
     AdminModule,
     OwnerModule,
-    CustomerModule,
-    UserRoutingModule
+    CustomerModule
   ],
   exports: [IndexComponent]
 })

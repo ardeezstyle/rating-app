@@ -21,6 +21,7 @@ export class Property{
 }
 
 export class Owner{
+  id?: string;
   address?: Address;
   email: string;
   first_name?: string;
