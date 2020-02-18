@@ -1,6 +1,35 @@
-<p>Admin owner works!</p>
 
 
-<p><a routerLink="centers/1">Center 1</a></p>
-<p><a routerLink="centers/2">Center 2</a></p>
-<p><a routerLink="centers/3">Center 3</a></p>
+<h2>Owner Overview</h2>
+<div class="" *ngIf="isloading">
+  <app-loading></app-loading>
+</div>
+
+<div class="" *ngIf="!isloading">
+  <pre>
+    {{owner.first_name}}
+    {{owner.last_name}}
+    <app-address [type]="'block'" [address]="owner.address"></app-address>
+    {{owner.phone}}
+    {{owner.email}}
+
+    <h3>Centers</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="!isloading">
+        <tr *ngFor="let center of owner.properties; let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td><a routerLink="centers/{{center.name}}">{{center.name}}</a></td>
+          <td><app-address [type]="'inline'" [address]="center.address"></app-address></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </pre>
+</div>

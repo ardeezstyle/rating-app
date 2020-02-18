@@ -9,12 +9,24 @@ import { OwnersComponent } from './owners/owners.component';
 import { OwnerComponent } from './owners/owner/owner.component';
 import { CentersComponent } from './owners/centers/centers.component';
 import { CenterComponent } from './owners/centers/center/center.component';
+import { AddressComponent } from '../../shared/address/address.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminComponent, CustomerComponent, CustomersComponent, OwnersComponent, OwnerComponent, CentersComponent, CenterComponent],
+  declarations: [
+    DashboardComponent,
+    AdminComponent,
+    CustomerComponent,
+    CustomersComponent,
+    OwnersComponent,
+    OwnerComponent,
+    CentersComponent,
+    CenterComponent
+  ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule
   ],
   exports: [DashboardComponent, AdminComponent]
 })

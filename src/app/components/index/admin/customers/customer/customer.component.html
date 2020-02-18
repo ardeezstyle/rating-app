@@ -1,1 +1,20 @@
-<p>Admin customer works!</p>
+
+<div class="" *ngIf="isloading">
+  <app-loading></app-loading>
+</div>
+
+<div class="" *ngIf="!isloading">
+  <pre>
+    {{customer.first_name}}
+    {{customer.middle_name}}
+    {{customer.last_name}}
+    <app-address [type]="'block'" [address]="customer.address"></app-address>
+    {{customer.center}}
+    {{customer.gender}}
+    {{customer.phone}}
+    {{customer.email}}
+    {{customer.program}}
+    {{customer.birth_anniversary.date}}
+    {{customer.birth_anniversary.month}}
+  </pre>
+</div>

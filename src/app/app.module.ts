@@ -12,7 +12,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { IndexModule } from './components/index/index.module';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/shared/header/header.component';
-import { LoadingComponent } from './components/shared/loading/loading.component';
+
+import { SharedModule } from './components/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,14 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     EnrollComponent,
     PropertyListComponent,
     NotFoundComponent,
-    HeaderComponent,
-    LoadingComponent
+    HeaderComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule,
     IndexModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [],

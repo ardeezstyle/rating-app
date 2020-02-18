@@ -70,7 +70,17 @@ export class OwnerService {
     }
   }
 
-
+  getCenterByOwnerIDName(id: string, name: string): Observable<Property> {
+    if(this.owners && this.owners.length > 0) {
+      const owner = this.owners.filter(owner => owner.id === id)[0];
+      return of(owner.properties.filter(center => center.name === name)[0]);
+    } else {
+      return this.getOwner(id).pipe(
+        map(owner => owner.properties),
+        map(centers => centers.filter(center => center.name === name)[0])
+      );
+    }
+  }
 
   getCenterByKeyword(keyword: string): Observable<any[]> {
     return this.getAllCenters().pipe(

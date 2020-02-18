@@ -1,1 +1,12 @@
-<p>Admin center works!</p>
+
+<h2>Center Overview</h2>
+<div class="" *ngIf="isloading">
+  <app-loading></app-loading>
+</div>
+
+<div class="" *ngIf="!isloading">
+  <pre>
+    <strong>{{center.name}}</strong>
+    <app-address [type]="'block'" [address]="center.address"></app-address>
+  </pre>
+</div>

@@ -1,3 +1,30 @@
-<p>Admin customers works!</p>
-<a routerLink="1">customer 1</a>
-<a routerLink="2">customer 2</a>
+<h2>Customers</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Center</th>
+      <th scope="col">Program</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="isloading">
+    <tr>
+      <td colspan="6">
+        <app-loading></app-loading>
+      </td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="!isloading">
+    <tr *ngFor="let customer of customers; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td><a routerLink="{{customer.id}}">{{customer.first_name}} {{customer.middle_name}} {{customer.last_name}}</a></td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.phone}}</td>
+      <td>{{customer.center}}</td>
+      <td>{{customer.program}}</td>
+    </tr>
+  </tbody>
+</table>
