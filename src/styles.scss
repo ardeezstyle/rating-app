@@ -4,3 +4,44 @@ a {
   outline: none;
   cursor: pointer;
 }
+
+.content {
+  padding: 24px 16px;
+}
+
+.overview {
+
+  .h3 {
+    color: #343a40;
+  }
+  fieldset {
+    margin: 10px 0;
+
+    label {
+      color: #888;
+      margin-right: 10px;
+      min-width: 100px;
+
+      &:after {
+        content: ': '
+      }
+    }
+
+    span {
+      display: inline-flex;
+      margin: 0 10px;
+    }
+  }
+}
+
+
+
+.modal-backdrop.show {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+
+  .modal.show {
+    top: 20%;
+    display: block;
+  }
+}

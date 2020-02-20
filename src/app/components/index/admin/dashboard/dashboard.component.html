@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<app-loading *ngIf="loading"></app-loading>
+<div class="jumbotron" *ngIf="!loading">
+  <div class="row w-100">
+      <div class="col-md-4">
+          <div class="card border-info mx-sm-1 p-3" [routerLink]="'/admin/owners'">
+              <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-user" aria-hidden="true"></span></div>
+              <div class="text-info text-center mt-3"><h4>Owners</h4></div>
+              <div class="text-info text-center mt-2"><h1>{{owner_count}}</h1></div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card border-success mx-sm-1 p-3" [routerLink]="'/admin/centers'">
+              <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-home" aria-hidden="true"></span></div>
+              <div class="text-success text-center mt-3"><h4>Centers</h4></div>
+              <div class="text-success text-center mt-2"><h1>{{center_count}}</h1></div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card border-danger mx-sm-1 p-3" [routerLink]="'/admin/customers'">
+              <div class="card border-danger shadow text-danger p-3 my-card" ><span class="fa fa-users" aria-hidden="true"></span></div>
+              <div class="text-danger text-center mt-3"><h4>Customers</h4></div>
+              <div class="text-danger text-center mt-2"><h1>{{customer_count}}</h1></div>
+          </div>
+      </div>
+   </div>
+</div>

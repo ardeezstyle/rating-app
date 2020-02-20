@@ -1,1 +1,78 @@
-<p>profile works!</p>
+<app-loading *ngIf="loading"></app-loading>
+
+<div class="overview" *ngIf="!loading">
+  <h3>Customer Overview</h3>
+
+  <div class="alert" *ngIf="rating_response"
+    [ngClass]="{'alert-success': rating_response.success, 'alert-danger': !rating_response.success}">
+    {{rating_response.message}}
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <fieldset>
+    <label>Name</label>
+    <span>{{getName}}</span>
+  </fieldset>
+  <fieldset>
+    <label>Date of birth</label>
+    <span>{{getDOB}}</span>
+  </fieldset>
+  <fieldset>
+    <label>Gender</label>
+    <span>{{customer.gender}}</span>
+  </fieldset>
+  <hr />
+  <fieldset>
+    <label>Email</label>
+    <span>{{customer.email}}</span>
+  </fieldset>
+  <fieldset>
+    <label>Phone</label>
+    <span>{{customer.phone}}</span>
+  </fieldset>
+  <fieldset>
+    <label>Address</label>
+    <app-address [type]="'inline'" [address]="customer.address"></app-address>
+  </fieldset>
+  <hr />
+  <fieldset>
+    <label>Center</label>
+    <span>{{customer.center}}</span>
+  </fieldset>
+  <fieldset>
+    <label>Program</label>
+    <span>{{customer.program}}</span>
+    <button class="btn btn-primary" type="button" name="button" (click)="openDialog()">Click to rate program</button>
+  </fieldset>
+</div>
+
+<div class="modal-backdrop show" *ngIf="showmodal">
+  <form (ngSubmit)="rate(f)" #f="ngForm">
+    <div #modal class="modal show" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Rate Program</h5>
+            <button type="button" class="close" aria-label="Close"  (click)="closeDialog()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <app-star (clicked)="getRatingValue($event)"></app-star>
+
+            <div class="form-group">
+              <label for="comment">Comment</label> <br />
+              <textarea class="form-control" name="comment" rows="4" cols="40" style="resize: none" ngModel></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary" (click)="closeDialog()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

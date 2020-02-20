@@ -13,17 +13,22 @@ export class OwnerService {
   constructor(private http: HttpClient) {}
 
   getAllOwners(): Observable<any[]> {
-    return this.http.get(OWNERDB).pipe(
-      map(response => {
-        const owners = [];
-        for(let key in response) {
-          owners.push({...response[key], id: key});
-        }
+    if(this.owners && this.owners.length > 0) {
+      return of(this.owners);
+    } else {
+      return this.http.get(OWNERDB).pipe(
+        map(response => {
+          const owners = [];
+          for(let key in response) {
+            owners.push({...response[key], id: key});
+          }
 
-        this.owners = [...owners];
-        return owners;
-      })
-    );
+          this.owners = [...owners];
+          return owners;
+        })
+      );
+    }
+
   }
 
   getOwner(id: string) : Observable<any> {
@@ -92,5 +97,9 @@ export class OwnerService {
         );
       })
     );
+  }
+
+  getOwnersAndPropertyCount() {
+    return of({owner: 4, property: 6});
   }
 }

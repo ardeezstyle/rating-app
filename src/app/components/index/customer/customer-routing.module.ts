@@ -17,6 +17,7 @@ import { NotFoundComponent } from '../../not-found/not-found.component';
         path: 'customer', component: CustomerComponent, children: [
           {path: 'profile', component: ProfileComponent},
           {path: 'ratings', component: RatingComponent},
+          {path: '', redirectTo: 'profile', pathMatch: 'full'},
           {path: '**', component: NotFoundComponent}
         ]
       }

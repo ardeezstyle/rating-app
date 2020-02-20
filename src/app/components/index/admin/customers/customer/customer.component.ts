@@ -11,6 +11,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class CustomerComponent implements OnInit {
   customer: Customer;
   isloading: boolean = false;
+  customer_name: string = '';
   constructor(
     private route: ActivatedRoute,
     private cs: CustomerService
@@ -22,6 +23,7 @@ export class CustomerComponent implements OnInit {
       console.log(res.id);
       this.cs.getCustomer(res.id).subscribe(res => {
         this.customer = res;
+        this.customer_name = this.customer.first_name + ' ' + this.customer.middle_name + ' ' + this.customer.last_name
         this.isloading = false;
       });
     });

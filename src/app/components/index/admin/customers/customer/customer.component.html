@@ -1,3 +1,9 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/admin/customers">All Customers</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{customer_name}}</li>
+  </ol>
+</nav>
 
 <div class="" *ngIf="isloading">
   <app-loading></app-loading>

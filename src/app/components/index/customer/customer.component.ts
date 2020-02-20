@@ -20,9 +20,6 @@ private os: OwnerService) { }
     this.rs.getAllRatings().subscribe(res => console.log(res));
     this.os.getAllOwners().subscribe(res => console.log(res));
     this.os.getOwner('-M-eGKEtpzW_bYnqFyGj').subscribe(res => console.log(res));
-
-
-
   }
 
 }

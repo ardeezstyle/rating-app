@@ -10,6 +10,7 @@ import { CenterComponent } from './owners/centers/center/center.component';
 import { CustomerComponent } from './customers/customer/customer.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AdminComponent } from './admin.component';
+import { CentersComponent } from './owners/centers/centers.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { AdminComponent } from './admin.component';
           {path: 'dashboard', component: DashboardComponent},
           {path: 'owners', component: OwnersComponent},
           {path: 'owners/:id', component: OwnerComponent},
+          {path: 'centers', component: CentersComponent},
           {path: 'owners/:id/centers/:center', component: CenterComponent},
           {path: 'customers', component: CustomersComponent},
           {path: 'customers/:id', component: CustomerComponent},

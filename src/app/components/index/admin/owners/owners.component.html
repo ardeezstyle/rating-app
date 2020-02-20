@@ -6,7 +6,7 @@
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
-      <th scope="col">Address</th>
+      <th scope="col">Average Rating</th>
     </tr>
   </thead>
   <tbody *ngIf="isloading">
@@ -22,7 +22,8 @@
       <td><a routerLink="{{owner.id}}">{{owner.first_name}} {{owner.last_name}}</a></td>
       <td>{{owner.email}}</td>
       <td>{{owner.phone}}</td>
-      <td><app-address [type]="'inline'" [address]="owner.address"></app-address></td>
+      <td>{{getOwnerRating(owner.id)}}</td>
+      <!-- <td><app-address [type]="'inline'" [address]="owner.address"></app-address></td> -->
     </tr>
   </tbody>
 </table>

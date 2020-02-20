@@ -9,22 +9,27 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CustomerService {
+  // public static Customers: Customer[];
   customers: Customer[];
 
   constructor(private http: HttpClient) {}
 
   getAllCustomers(): Observable<Customer[]> {
-    return this.http.get(CUSTOMERDB).pipe(
-      map(_response => {
-        const customers = [];
-        for(let key in _response) {
-          customers.push({..._response[key], id: key});
-        }
+    if(this.customers && this.customers.length > 0) {
+      return of(this.customers);
+    } else {
+      return this.http.get(CUSTOMERDB).pipe(
+        map(_response => {
+          const customers = [];
+          for(let key in _response) {
+            customers.push({..._response[key], id: key});
+          }
 
-        this.customers = [...customers];
-        return customers;
-      })
-    );
+          this.customers = [...customers];
+          return customers;
+        })
+      );
+    }
   }
 
   getCustomer(id: string) : Observable<Customer> {
@@ -73,6 +78,16 @@ export class CustomerService {
           return customers;
         })
       );
+    }
+  }
+
+  getCustomerCount(): Observable<number> {
+    if(this.customers && this.customers.length) {
+      return of(this.customers.length);
+    } else {
+      return this.getAllCustomers().pipe(
+        map(response => response.length)
+      )
     }
   }
 }

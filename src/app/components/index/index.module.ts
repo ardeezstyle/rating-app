@@ -4,6 +4,7 @@ import { IndexComponent } from './index.component';
 import { CustomerModule } from './customer/customer.module';
 import { OwnerModule } from './owner/owner.module';
 import { AdminModule } from './admin/admin.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [IndexComponent],
@@ -13,6 +14,6 @@ import { AdminModule } from './admin/admin.module';
     OwnerModule,
     CustomerModule
   ],
-  exports: [IndexComponent]
+  exports: [IndexComponent, AdminModule, OwnerModule, CustomerModule]
 })
 export class IndexModule { }

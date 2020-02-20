@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ADMINDB, OWNERDB, CUSTOMERDB } from '../config/dbconfig';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, forkJoin, throwError } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RSLOGIN } from '../config/constants';
 import { AuthorisedData } from '../models/commons';
@@ -107,14 +107,3 @@ export class AuthService {
   }
 
 }
-//
-// map(response => {
-//   const admin: Admin = {
-//     email: '',
-//     name: '',
-//     password: '',
-//     type: ''
-//   };
-//
-//   return admin;
-// })
