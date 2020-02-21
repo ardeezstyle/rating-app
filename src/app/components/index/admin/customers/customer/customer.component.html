@@ -11,16 +11,48 @@
 
 <div class="" *ngIf="!isloading">
   <pre>
-    {{customer.first_name}}
-    {{customer.middle_name}}
-    {{customer.last_name}}
-    <app-address [type]="'block'" [address]="customer.address"></app-address>
-    {{customer.center}}
-    {{customer.gender}}
-    {{customer.phone}}
-    {{customer.email}}
-    {{customer.program}}
-    {{customer.birth_anniversary.date}}
-    {{customer.birth_anniversary.month}}
+Name: {{customer.first_name}} {{customer.middle_name}} {{customer.last_name}}
+<app-address [type]="'block'" [address]="customer.address"></app-address>
+<hr />
+Gender: {{customer.gender}}
+Phone: {{customer.phone}}
+Email: {{customer.email}}
+Birthday: {{customer.birth_anniversary.month}} {{customer.birth_anniversary.date}}
+<hr />
+Center Name: {{customer.center}}
+Program: {{customer.program}}
+Duration:
+Date of Joining:
   </pre>
 </div>
+
+<h3>Rating History</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Program</th>
+      <th scope="col">Center</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Coments</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="loading">
+    <tr>
+      <td colspan="6">
+        <app-loading></app-loading>
+      </td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="!loading">
+    <tr *ngFor="let rating of ratings; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{rating.date | date:'fullDate'}}</td>
+      <td>{{rating.program}}</td>
+      <td>{{rating.center}}</td>
+      <td>{{rating.rating}}</td>
+      <td>{{rating.comment}}</td>
+    </tr>
+  </tbody>
+</table>

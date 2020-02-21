@@ -1,3 +1,19 @@
-<p>centers works!</p>
-<a routerLink="1">center 1</a>
-<a routerLink="2">center 2</a>
+
+<h3>Centers</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Avg Rating</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="!isloading">
+    <tr *ngFor="let center of centers; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td><a routerLink="{{center.name}}">{{center.name}}</a></td>
+      <td>{{getCenterRating(center.name)}}</td>
+      <!-- <td><app-address [type]="'inline'" [address]="center.address"></app-address></td> -->
+    </tr>
+  </tbody>
+</table>

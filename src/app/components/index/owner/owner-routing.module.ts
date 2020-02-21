@@ -21,6 +21,7 @@ const index_routes: Routes = [
       {path: 'users', component: UsersComponent},
       {path: 'users/:id', component: UserComponent},
       {path: 'property', component: PropertyComponent},
+      {path: '', redirectTo: 'profile', pathMatch: 'full'},
       {path: '**', component: NotFoundComponent}
     ]
   }

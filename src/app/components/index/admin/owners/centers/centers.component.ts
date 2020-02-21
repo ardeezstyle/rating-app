@@ -23,7 +23,6 @@ export class CentersComponent implements OnInit {
     this.isloading = true;
     this.os.getAllCenters().subscribe(res => {
       this.centers = res;
-      console.log(res);
       this.isloading = false;
     });
   }

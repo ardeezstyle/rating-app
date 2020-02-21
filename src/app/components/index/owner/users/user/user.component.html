@@ -1,1 +1,27 @@
-<p>user works!</p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/owner/users">All Customers</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{customer_name}}</li>
+  </ol>
+</nav>
+
+<div class="" *ngIf="isloading">
+  <app-loading></app-loading>
+</div>
+
+<div class="" *ngIf="!isloading">
+  <pre>
+Name: {{customer.first_name}} {{customer.middle_name}} {{customer.last_name}}
+<app-address [type]="'block'" [address]="customer.address"></app-address>
+<hr />
+Gender: {{customer.gender}}
+Phone: {{customer.phone}}
+Email: {{customer.email}}
+Birthday: {{customer.birth_anniversary.month}} {{customer.birth_anniversary.date}}
+<hr />
+Center Name: {{customer.center}}
+Program: {{customer.program}}
+Duration:
+Date of Joining:
+  </pre>
+</div>

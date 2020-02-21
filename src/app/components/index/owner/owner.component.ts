@@ -9,8 +9,6 @@ export class OwnerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log('ok owner home');
-  }
+  ngOnInit() {}
 
 }

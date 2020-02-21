@@ -15,7 +15,6 @@ export class IndexComponent implements OnInit {
     this.route.data.subscribe(res => {
       console.log("Redirect to the correct user based on response");
 
-      console.log(res, res.user && res.user.type);
       if(res.user && res.user.type) {
         switch(res.user.type) {
           case USER_TYPES.ADMIN: {

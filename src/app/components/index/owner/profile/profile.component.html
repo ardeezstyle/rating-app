@@ -1,4 +1,10 @@
-<!-- <app-loading *ngIf="loading"></app-loading> -->
-<div class="" *ngIf="!loading">
-  Show Customer Summary
+<app-loading *ngIf="isloading"></app-loading>
+<div class="" *ngIf="!isloading">
+  <pre>
+Name: {{owner.first_name}} {{owner.last_name}}
+<app-address [type]="'block'" [address]="owner.address"></app-address>
+Phone: {{owner.phone}}
+Email: {{owner.email}}
+Average Rating: {{getAvgRating}}
+  </pre>
 </div>

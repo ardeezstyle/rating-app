@@ -80,9 +80,16 @@ export class OwnerService {
       const owner = this.owners.filter(owner => owner.id === id)[0];
       return of(owner.properties.filter(center => center.name === name)[0]);
     } else {
+      console.log(id);
       return this.getOwner(id).pipe(
-        map(owner => owner.properties),
-        map(centers => centers.filter(center => center.name === name)[0])
+        map(owner => {
+          console.log('owner', owner);
+          return owner.properties;
+        }),
+        map(centers => {
+          console.log(centers);
+          return (centers) ? centers.filter(center => center.name === name)[0] : {};
+        })
       );
     }
   }

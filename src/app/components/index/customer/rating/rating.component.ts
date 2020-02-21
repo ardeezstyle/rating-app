@@ -13,8 +13,7 @@ export class RatingComponent implements OnInit {
   ratings: Rating[];
 
   constructor(
-    private rs: RatingService,
-    private us: UtilitiesService
+    private rs: RatingService
   ) { }
 
   ngOnInit() {
@@ -26,7 +25,6 @@ export class RatingComponent implements OnInit {
     this.rs.getAllRatingsByCustomer(UtilitiesService.getUserId()).subscribe({
       next: res => {
         this.ratings = res;
-        console.log(res);
         this.loading = false;
       },
       error: error => console.log(error)

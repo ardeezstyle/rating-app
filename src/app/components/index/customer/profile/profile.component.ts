@@ -38,8 +38,6 @@ export class ProfileComponent implements OnInit {
     this.customerService.getCustomer(UtilitiesService.getUserId()).subscribe(res => {
       this.loading = false;
       this.customer = res;
-
-      console.log(this.customer);
     });
   }
 
