@@ -12,7 +12,7 @@ import { AuthDataResolverService } from './services/auth-data-resolver.service';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'enroll', component: EnrollComponent},
+  {path: 'enroll/:owner_id/:center_name', component: EnrollComponent},
   {path: 'list-property', component: PropertyListComponent},
   {path: 'login', component: LoginComponent},
   {path: 'page', component: IndexComponent, canActivate: [AuthGuard], resolve: {user: AuthDataResolverService},},

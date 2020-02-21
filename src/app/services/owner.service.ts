@@ -48,7 +48,10 @@ export class OwnerService {
     if(this.owners && this.owners.length > 0) {
       const centers = [];
       this.owners.map(owner => {
-          centers.push(...owner.properties);
+        const props = owner.properties.map(prop => {
+          return {...prop, owner_id: owner.id};
+        })
+        centers.push(...props);
       })
       return of(centers);
     } else {
@@ -56,7 +59,10 @@ export class OwnerService {
         map(owners => {
           const centers = [];
           owners.map(owner => {
-              centers.push(...owner.properties);
+            const props = owner.properties.map(prop => {
+              return {...prop, owner_id: owner.id};
+            })
+            centers.push(...props);
           })
           return centers;
         })
@@ -87,7 +93,6 @@ export class OwnerService {
           return owner.properties;
         }),
         map(centers => {
-          console.log(centers);
           return (centers) ? centers.filter(center => center.name === name)[0] : {};
         })
       );

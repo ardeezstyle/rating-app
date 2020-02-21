@@ -12,8 +12,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { IndexModule } from './components/index/index.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './components/shared/shared.module';
-import { HeaderComponent } from './components/shared/header/header.component';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

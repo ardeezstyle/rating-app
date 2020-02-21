@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
     this.os.getAllCenters().subscribe(res => {
       // console.log('getAllCenters', res);
       this.centers = res;
+    console.log(this.centers);
       this.isloading = false;
     });
   }
