@@ -38,14 +38,14 @@ Date of Joining:
       <th scope="col">Coments</th>
     </tr>
   </thead>
-  <tbody *ngIf="loading">
+  <tbody *ngIf="isloading">
     <tr>
       <td colspan="6">
         <app-loading></app-loading>
       </td>
     </tr>
   </tbody>
-  <tbody *ngIf="!loading">
+  <tbody *ngIf="!isloading">
     <tr *ngFor="let rating of ratings; let i=index">
       <th scope="row">{{i+1}}</th>
       <td>{{rating.date | date:'fullDate'}}</td>

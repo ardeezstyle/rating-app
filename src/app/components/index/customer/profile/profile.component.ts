@@ -3,7 +3,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { Customer, Rating } from 'src/app/models/commons';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { RatingService } from 'src/app/services/rating.service';
-import { NgModel } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 class Response {
   success: boolean;
@@ -65,7 +65,7 @@ export class ProfileComponent implements OnInit {
     this.rating_response = null;
   }
 
-  rate(f: NgModel) {
+  rate(f: NgForm) {
     const rating: Rating = {
       center: this.customer.center,
       comment: f.value.comment,
