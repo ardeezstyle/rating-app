@@ -1,2 +1,115 @@
-<!-- <app-header></app-header> -->
-<p>property-list works!</p>
+<div class="card">
+    <div class="card-header">User Enrollment</div>
+    <div class="card-body">
+        <form class="form-horizontal" (ngSubmit)="saveData(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" />
+                        <input type="text" class="form-control" name="middle_name" id="middle_name" placeholder="Middle Name" />
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Street</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Street Address" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">City</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your City" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">State</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your State" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Country</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Country" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Postal Code</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Postal Code" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Age</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Age" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Birth Anniversary</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="email" id="bd_month" placeholder="Month" />
+                        <input type="text" class="form-control" name="email" id="bd_day" placeholder="Day" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username" class="cols-sm-2 control-label">Gender</label>
+                <div class="cols-sm-10">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="cols-sm-2 control-label">Password</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary btn-lg">Enroll</button>
+                <button type="button" class="btn btn-defaul btn-lg">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
