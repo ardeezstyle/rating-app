@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+/public
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -15,6 +16,9 @@ package-lock.json
 
 # Mock Data
 rating-system-675db.json
+
+# Firebase
+/.firebase
 
 # profiling files
 chrome-profiler-events.json
