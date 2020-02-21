@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OWNERDB } from '../config/dbconfig';
+import { OWNERDB, OWNERPATH } from '../config/dbconfig';
 import { map } from 'rxjs/operators';
 import { Owner, Property } from '../models/commons';
 import { Observable, of } from 'rxjs';
@@ -10,6 +10,7 @@ import { Observable, of } from 'rxjs';
 })
 export class OwnerService {
   owners: Owner[];
+
   constructor(private http: HttpClient) {}
 
   getAllOwners(): Observable<any[]> {
@@ -113,5 +114,13 @@ export class OwnerService {
 
   getOwnersAndPropertyCount() {
     return of({owner: 4, property: 6});
+  }
+
+  addProperty(props: Property[], owner_id: string) {
+    return this.http.patch(OWNERPATH + '/' + owner_id + '.json', {properties: props});
+  }
+
+  addOwner(owner: Owner): Observable<any> {
+    return this.http.post(OWNERDB, owner);
   }
 }

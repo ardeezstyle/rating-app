@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OwnerService } from 'src/app/services/owner.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { NgForm } from '@angular/forms';
+import { Property, Address } from 'src/app/models/commons';
 
 @Component({
   selector: 'app-home',
@@ -24,12 +25,38 @@ export class HomeComponent implements OnInit {
     this.os.getAllCenters().subscribe(res => {
       // console.log('getAllCenters', res);
       this.centers = res;
-    console.log(this.centers);
       this.isloading = false;
     });
   }
 
+  addNewProperty() {
+    const new_property: Property = {
+      name: 'Fortuna Gem',
+      program: ["3 months programs", "6 months programs"],
+      address: {
+        city: 'Bangalore',
+        country: 'India',
+        postal_code: '560075',
+        state: 'Karnataka',
+        street: 'Vijaya Bank Layout'
+      }
+    };
 
+    const owner_id = '-M-ldTfqutdFPYBrQiwS';
+    this.os.getAllCentersByOwnerID(owner_id).subscribe(centers => {
+      console.log(centers);
+      const updatedCenters = [...centers, {...new_property}];
+
+      console.log(updatedCenters);
+
+      this.os.addProperty(updatedCenters, owner_id).subscribe({
+        next: res => console.log(res),
+        error: error => console.log(error)
+      });
+    })
+
+    // console.log(new_property);
+  }
   // fetchCenters() {
   //   this.os.getAllCenters().subscribe(res => console.log('getAllCenters', res));
   //   this.os.getOwner('-M-eGKEtpzW_bYnqFyGj').subscribe(res => console.log('getOwner', res));
