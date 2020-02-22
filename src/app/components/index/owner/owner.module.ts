@@ -9,12 +9,14 @@ import { CenterComponent } from './centers/center/center.component';
 import { OwnerRoutingModule } from './owner-routing.module';
 import { PropertyComponent } from './property/property.component';
 import { SharedModule } from '../../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [OwnerComponent, ProfileComponent, CentersComponent, UsersComponent, UserComponent, CenterComponent, PropertyComponent],
   imports: [
     CommonModule,
+    FormsModule,
     SharedModule,
     OwnerRoutingModule
   ],

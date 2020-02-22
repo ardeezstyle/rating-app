@@ -1,0 +1,19 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{center_name}}</li>
+  </ol>
+</nav>
+
+<h2>Center Overview</h2>
+
+<app-loading *ngIf="isloading"></app-loading>
+
+
+<div class="" *ngIf="!isloading">
+  <pre>
+    <strong>{{center.name}}</strong>
+    <app-address [type]="'block'" [address]="center.address"></app-address>
+    Ave Rating: {{rating}}
+  </pre>
+</div>

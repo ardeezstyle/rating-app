@@ -90,4 +90,8 @@ export class CustomerService {
       )
     }
   }
+
+  saveCustomer(customer: Customer): Observable<any> {
+    return this.http.post(CUSTOMERDB, customer);
+  }
 }

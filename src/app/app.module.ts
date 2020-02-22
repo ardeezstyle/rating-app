@@ -13,6 +13,7 @@ import { IndexModule } from './components/index/index.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './components/shared/shared.module';
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
+import { CenterComponent } from './components/center/center.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
     LoginComponent,
     EnrollComponent,
     PropertyListComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CenterComponent
   ],
   imports: [
     FormsModule,

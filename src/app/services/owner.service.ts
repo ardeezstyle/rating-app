@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { OWNERDB, OWNERPATH } from '../config/dbconfig';
 import { map } from 'rxjs/operators';
 import { Owner, Property } from '../models/commons';
-import { Observable, of } from 'rxjs';
+import { Observable, of, forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -87,15 +87,11 @@ export class OwnerService {
       const owner = this.owners.filter(owner => owner.id === id)[0];
       return of(owner.properties.filter(center => center.name === name)[0]);
     } else {
-      console.log(id);
       return this.getOwner(id).pipe(
         map(owner => {
-          console.log('owner', owner);
           return owner.properties;
         }),
-        map(centers => {
-          return (centers) ? centers.filter(center => center.name === name)[0] : {};
-        })
+        map(centers => (centers && centers.length > 0) ? centers.filter(cn => cn.name.trim() === name.trim())[0] : {})
       );
     }
   }
@@ -113,7 +109,15 @@ export class OwnerService {
   }
 
   getOwnersAndPropertyCount() {
-    return of({owner: 4, property: 6});
+    return forkJoin(
+      this.getAllOwners(),
+      this.getAllCenters()
+    ).pipe(
+      map(response => {
+        return {owner: response[0].length, property: response[1].length}
+      })
+    )
+
   }
 
   addProperty(props: Property[], owner_id: string) {

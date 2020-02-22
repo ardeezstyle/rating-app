@@ -7,11 +7,11 @@ export class Admin{
 }
 
 export class Address{
-  city: string;
-  country: string;
-  postal_code: string;
-  state: string;
-  street: string;
+  city?: string;
+  country?: string;
+  postal_code?: string;
+  state?: string;
+  street?: string;
 }
 
 export class Property{

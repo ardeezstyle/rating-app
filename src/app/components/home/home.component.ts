@@ -3,6 +3,7 @@ import { OwnerService } from 'src/app/services/owner.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { NgForm } from '@angular/forms';
 import { Property, Address } from 'src/app/models/commons';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { Property, Address } from 'src/app/models/commons';
 export class HomeComponent implements OnInit {
   centers: any[];
   isloading: boolean = false;
+  isLoggedIn: boolean = false;
 
   constructor(
     private os: OwnerService,
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit {
     // this.os.getAllOwners().subscribe(res => console.log(res));
     // this.cs.getAllCustomers().subscribe(res => console.log('getAllCustomers', res));
     this.isloading = true;
+    this.isLoggedIn = UtilitiesService.isLoggedIn();
     this.os.getAllCenters().subscribe(res => {
       // console.log('getAllCenters', res);
       this.centers = res;

@@ -31,8 +31,19 @@ export class UtilitiesService {
     const total = array.reduce((acc, cur) => acc+cur);
     return (total/len).toFixed(2);
   }
-  
+
   public static getSumFromArray(array: number[] = [1, 2, 3]) {
     return array.reduce((acc, cur) => acc+cur);
+  }
+
+  public static isLoggedIn(): boolean {
+    let ls: any;
+    if(localStorage) {
+      ls = localStorage.getItem(RSLOGIN);
+
+      console.log('ls', ls, typeof ls);
+    }
+
+    return typeof ls === 'string';
   }
 }

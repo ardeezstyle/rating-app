@@ -1,115 +1,183 @@
 <div class="card">
-    <div class="card-header">User Enrollment</div>
-    <div class="card-body">
-        <form class="form-horizontal" (ngSubmit)="saveData(f)" #f="ngForm">
-            <div class="form-group">
-                <label for="name" class="cols-sm-2 control-label">Your Name</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" />
-                        <input type="text" class="form-control" name="middle_name" id="middle_name" placeholder="Middle Name" />
-                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Your Email</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Street</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Street Address" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">City</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your City" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">State</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your State" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Country</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Country" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Postal Code</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Postal Code" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Age</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Age" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Birth Anniversary</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="email" id="bd_month" placeholder="Month" />
-                        <input type="text" class="form-control" name="email" id="bd_day" placeholder="Day" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="username" class="cols-sm-2 control-label">Gender</label>
-                <div class="cols-sm-10">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                    <label class="form-check-label" for="male">Male</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                    <label class="form-check-label" for="female">Female</label>
-                  </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="password" class="cols-sm-2 control-label">Password</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-group ">
-                <button type="submit" class="btn btn-primary btn-lg">Enroll</button>
-                <button type="button" class="btn btn-defaul btn-lg">Cancel</button>
-            </div>
-        </form>
+  <div class="card-header">List Your Property</div>
+  <div class="card-body">
+    <div class="alert alert-success" role="alert" *ngIf="isSuccess">
+      Thank you for registering as a franchise owner and listing property. Please login with you email and password
+      <a [routerLink]="'/login'">here</a>.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
+    <div class="alert alert-danger" role="alert" *ngIf="!isFormValid">
+      Please enter the required fields(*). Your Name, Your Email, Password, Center Name are mandatory fields.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form class="form-horizontal" (ngSubmit)="saveData(f)" #f="ngForm">
+      <h3>Owner Details</h3>
+      <div class="form-group required">
+        <label for="name" class="cols-sm-2 control-label" required>Your Name</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" ngModel required />
+            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required ngModel />
+          </div>
+        </div>
+      </div>
+      <div class="form-group required">
+        <label for="email" class="cols-sm-2 control-label">Your Email</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email" required ngModel />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone" class="cols-sm-2 control-label">Your Phone</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter your Phone Number" ngModel />
+          </div>
+        </div>
+      </div>
+      <div class="form-group required">
+        <label for="password" class="cols-sm-2 control-label">Password</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" required ngModel />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" ngModel />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="street" class="cols-sm-2 control-label">Street</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="text" class="form-control" name="street" id="street" placeholder="Enter your Street Address" ngModel />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city" class="cols-sm-2 control-label">City</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="text" class="form-control" name="city" id="city" placeholder="Enter your City" ngModel />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="state" class="cols-sm-2 control-label">State</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="text" class="form-control" name="state" id="state" placeholder="Enter your State" ngModel />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="country" class="cols-sm-2 control-label">Country</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="text" class="form-control" name="country" id="country" placeholder="Enter your Country" ngModel />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="postal_code" class="cols-sm-2 control-label">Postal Code</label>
+        <div class="cols-sm-12">
+          <div class="input-group">
+            <input type="text" class="form-control" name="postal_code" id="postal_code" placeholder="Enter your Postal Code" ngModel />
+          </div>
+        </div>
+      </div>
+
+      <h3>Center Details</h3>
+      <div class="form-group required">
+        <label for="center_name" class="cols-sm-2 control-label">Center Name</label>
+        <div class="cols-sm-12">
+          <input type="text" class="form-control" name="center_name" id="center_name" placeholder="Enter the Center Name" required ngModel />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="center_address" id="center_address" ngModel (change)="isSameAddress($event)" />
+          <label class="form-check-label" for="center_address">Same As Owner Address</label>
+        </div>
+      </div>
+      <div class="address-fields" *ngIf="!sameAddress">
+        <div class="form-group">
+          <label for="center_street" class="cols-sm-2 control-label">Street</label>
+          <div class="cols-sm-12">
+            <div class="input-group">
+              <input type="text" class="form-control" name="center_street" id="center_street" placeholder="Enter your Street Address" ngModel />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="center_city" class="cols-sm-2 control-label">City</label>
+          <div class="cols-sm-12">
+            <div class="input-group">
+              <input type="text" class="form-control" name="center_city" id="center_city" placeholder="Enter your City" ngModel />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="center_state" class="cols-sm-2 control-label">State</label>
+          <div class="cols-sm-12">
+            <div class="input-group">
+              <input type="text" class="form-control" name="center_state" id="center_state" placeholder="Enter your State" ngModel />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="center_country" class="cols-sm-2 control-label">Country</label>
+          <div class="cols-sm-12">
+            <div class="input-group">
+              <input type="text" class="form-control" name="center_country" id="center_country" placeholder="Enter your Country" ngModel />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="center_postal_code" class="cols-sm-2 control-label">Postal Code</label>
+          <div class="cols-sm-12">
+            <div class="input-group">
+              <input type="text" class="form-control" name="center_postal_code" id="center_postal_code" placeholder="Enter your Postal Code" ngModel />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Program Details</h3>
+      <div class="form-group">
+        <label for="program" class="cols-sm-2 control-label">Programs</label>
+        <div class="cols-sm-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="program1" id="program1" value="3 Months Program" ngModel />
+            <label class="form-check-label" for="program1">3 Months Program</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="program2" id="program2" value="6 Months Program" ngModel />
+            <label class="form-check-label" for="program2">6 Months Program</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="program3" id="program3" value="9 Months Program" ngModel />
+            <label class="form-check-label" for="program3">9 Months Program</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group ">
+        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+        <button type="button" class="btn btn-defaul btn-lg">Cancel</button>
+      </div>
+    </form>
+  </div>
 </div>

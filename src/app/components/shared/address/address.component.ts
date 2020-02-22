@@ -13,7 +13,7 @@ export class AddressComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-console.log(this.address);
+    console.log(this.address);
   }
 
 }

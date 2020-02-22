@@ -8,11 +8,13 @@ import { LoginComponent } from './components/login/login.component';
 import { IndexComponent } from './components/index/index.component';
 import { AuthGuard } from './services/auth.guard';
 import { AuthDataResolverService } from './services/auth-data-resolver.service';
+import { CenterComponent } from './components/center/center.component';
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'enroll/:owner_id/:center_name', component: EnrollComponent},
+  {path: 'center/:owner_id/:center_name', component: CenterComponent},
   {path: 'list-property', component: PropertyListComponent},
   {path: 'login', component: LoginComponent},
   {path: 'page', component: IndexComponent, canActivate: [AuthGuard], resolve: {user: AuthDataResolverService},},

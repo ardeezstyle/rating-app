@@ -34,7 +34,10 @@ a {
   }
 }
 
-
+.form-group.required .control-label:after {
+  content:"*";
+  color: #721c24;
+}
 
 .modal-backdrop.show {
   background: rgba(0, 0, 0, 0.5);

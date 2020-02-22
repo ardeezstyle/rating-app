@@ -27,6 +27,7 @@ import { CentersComponent } from './owners/centers/centers.component';
           {path: 'owners/:id/centers/:center', component: CenterComponent},
           {path: 'customers', component: CustomersComponent},
           {path: 'customers/:id', component: CustomerComponent},
+          {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
           {path: '**', component: NotFoundComponent}
         ]
       }
