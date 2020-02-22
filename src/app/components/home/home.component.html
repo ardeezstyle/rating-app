@@ -22,6 +22,7 @@
             <div class="card-title">
                 <h2><a routerLink="/center/{{center.owner_id}}/{{center.name}}">{{center.name}}</a></h2>
                 <p><app-address [type]="'block'" [address]="center.address"></app-address></p>
+                <p>Rating: {{aggregatedRatings[center.name] ? aggregatedRatings[center.name] : 'Not Rated'}}</p>
             </div>
             <div class="card-link" *ngIf="!isLoggedIn">
                 <a routerLink="/enroll/{{center.owner_id}}/{{center.name}}" class="c-link">Enroll

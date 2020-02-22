@@ -70,3 +70,13 @@ export class AuthorisedData {
   type: string;
   id: string;
 }
+
+export class AggregatedCenterRating {
+  owner_id: string;
+  center: string;
+  rating: number;
+}
+export class AggregatedOwnerRating {
+  owner_id: string;
+  rating: number;
+}

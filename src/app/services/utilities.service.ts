@@ -40,10 +40,8 @@ export class UtilitiesService {
     let ls: any;
     if(localStorage) {
       ls = localStorage.getItem(RSLOGIN);
-
-      console.log('ls', ls, typeof ls);
     }
-
+    
     return typeof ls === 'string';
   }
 }

@@ -4,6 +4,8 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { NgForm } from '@angular/forms';
 import { Property, Address } from 'src/app/models/commons';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { RatingService } from 'src/app/services/rating.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,52 +16,45 @@ export class HomeComponent implements OnInit {
   centers: any[];
   isloading: boolean = false;
   isLoggedIn: boolean = false;
+  aggregatedRatings: any;
 
   constructor(
     private os: OwnerService,
-    private cs: CustomerService
+    private cs: CustomerService,
+    private rs: RatingService
   ) { }
 
   ngOnInit() {
-    // this.os.getAllOwners().subscribe(res => console.log(res));
-    // this.cs.getAllCustomers().subscribe(res => console.log('getAllCustomers', res));
-    this.isloading = true;
     this.isLoggedIn = UtilitiesService.isLoggedIn();
-    this.os.getAllCenters().subscribe(res => {
+    this.getData();
+  }
+
+  private getData() {
+    this.isloading = true;
+    forkJoin(
+      this.os.getAllCenters(),
+      this.rs.getAggregatedRatings()
+    )
+    .subscribe(res => {
       // console.log('getAllCenters', res);
+      this.centers = res[0];
+      this.aggregatedRatings = res[1];
+      this.isloading = false;
+    });
+  }
+
+  searchCenters(f: NgForm) {
+    this.isloading = true;
+    this.os.getCenterByKeyword(f.value.search).subscribe(res => {
       this.centers = res;
       this.isloading = false;
     });
   }
 
-  addNewProperty() {
-    const new_property: Property = {
-      name: 'Fortuna Gem',
-      program: ["3 months programs", "6 months programs"],
-      address: {
-        city: 'Bangalore',
-        country: 'India',
-        postal_code: '560075',
-        state: 'Karnataka',
-        street: 'Vijaya Bank Layout'
-      }
-    };
+  // this.os.getAllOwners().subscribe(res => console.log(res));
+  // this.cs.getAllCustomers().subscribe(res => console.log('getAllCustomers', res));
 
-    const owner_id = '-M-ldTfqutdFPYBrQiwS';
-    this.os.getAllCentersByOwnerID(owner_id).subscribe(centers => {
-      console.log(centers);
-      const updatedCenters = [...centers, {...new_property}];
 
-      console.log(updatedCenters);
-
-      this.os.addProperty(updatedCenters, owner_id).subscribe({
-        next: res => console.log(res),
-        error: error => console.log(error)
-      });
-    })
-
-    // console.log(new_property);
-  }
   // fetchCenters() {
   //   this.os.getAllCenters().subscribe(res => console.log('getAllCenters', res));
   //   this.os.getOwner('-M-eGKEtpzW_bYnqFyGj').subscribe(res => console.log('getOwner', res));
@@ -72,13 +67,4 @@ export class HomeComponent implements OnInit {
   //   this.cs.getAllCustomersByOwnerID('-M-eGKEtpzW_bYnqFyGj').subscribe(res => console.log('getAllCustomersByOwnerID', res));
   //   this.cs.getAllCustomersByCenterName('-M-eGKEtpzW_bYnqFyGj', 'Tom Keitons').subscribe(res => console.log('getAllCustomersByCenterName', res));
   // }
-
-  searchCenters(f: NgForm) {
-    this.isloading = true;
-    this.os.getCenterByKeyword(f.value.search).subscribe(res => {
-      this.centers = res;
-      this.isloading = false;
-    });
-  }
-
 }

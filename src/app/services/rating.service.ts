@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { RATINGDB } from '../config/dbconfig';
 
 import { map } from 'rxjs/operators';
-import { Rating } from '../models/commons';
-import { of } from 'rxjs';
+import { Rating, AggregatedCenterRating } from '../models/commons';
+import { of, Observable } from 'rxjs';
 import { UtilitiesService } from './utilities.service';
 
 @Injectable({
@@ -13,6 +13,7 @@ import { UtilitiesService } from './utilities.service';
 export class RatingService {
   public static Ratings: Rating[];
   public static OwnersRating: any;
+  public static AggregatedCenterRating: any;
 
   constructor(
     private http: HttpClient
@@ -104,7 +105,6 @@ export class RatingService {
   }
 
 
-
   getAllRatingsByOwner(owner_id: string) {
     if(RatingService.Ratings && RatingService.Ratings.length > 0) {
       return of(RatingService.Ratings.filter(rating => rating.user_id === owner_id))
@@ -124,6 +124,27 @@ export class RatingService {
 
   }
 
+  getAggregatedRatings(): Observable<any> {
+    if(RatingService.AggregatedCenterRating) {
+      return of(RatingService.AggregatedCenterRating);
+    } else {
+      return this.getAllRatingsByOwners().pipe(
+        map(ratings => {
+          const aggregatedRatings = {};
+          for(let owner in ratings) {
+            for(let center in ratings[owner]) {
+              if(center !== 'avg'){
+                aggregatedRatings[center] = ratings[owner][center];
+              }
+            }
+          }
+          RatingService.AggregatedCenterRating = aggregatedRatings;
+          return aggregatedRatings;
+        })
+      )
+    }
+  }
+
   getAggregatedRatingsByOwner(owner_id: string) {
     if(RatingService.OwnersRating) {
       return of(RatingService.OwnersRating[owner_id]);
@@ -132,7 +153,6 @@ export class RatingService {
         map(response => response[owner_id])
       );
     }
-
   }
 
   rateProgram(rating: Rating) {

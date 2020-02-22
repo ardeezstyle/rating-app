@@ -69,6 +69,7 @@ export class EnrollComponent implements OnInit {
       this.cs.saveCustomer(this.customer).subscribe(res => {
         console.log(res);
         this.isSuccess = true;
+        f.reset();
       });
     } else {
       this.isSuccess = false;
