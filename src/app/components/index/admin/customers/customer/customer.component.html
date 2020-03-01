@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-md-6">
-    CUSTOMER INFORMATION: 7/ JOHN DOE/ S-3/ 23.02.2020
+    CUSTOMER INFORMATION: {{customer.cus_id}}/ {{customer.first_name}} {{customer.second_name}}/ {{customer.program}}/ {{ cur_date | date: 'dd/MM/yyyy'}}
   </div>
 </div>
 
@@ -29,19 +29,19 @@
       </thead>
       <tbody>
         <tr>
-          <td>7</td>
-          <td>JOHN</td>
-          <td>DOE</td>
-          <td>S-3</td>
+          <td>{{customer.cus_id}}</td>
+          <td>{{customer.first_name}}</td>
+          <td>{{customer.second_name}}</td>
+          <td>{{customer.cabin}}</td>
           <td>4.54</td>
           <td>18</td>
           <td>4.75</td>
           <td>5</td>
-          <td>SMALL</td>
-          <td>6</td>
-          <td>18.12.2019</td>
-          <td>05.01.2020</td>
-          <td>05.06.2020</td>
+          <td>{{customer.program}}</td>
+          <td>{{customer.tenure}}</td>
+          <td>{{customer.joining_date | date: 'dd.MM.yyyy'}}</td>
+          <td>{{customer.prog_start_date | date: 'dd.MM.yyyy'}}</td>
+          <td>{{customer.prog_end_date | date: 'dd.MM.yyyy'}}</td>
         </tr>
       </tbody>
     </table>
@@ -55,14 +55,14 @@
       <a
         class="btn btn-primary"
         role="button"
-        routerLink="/admin/customers/-M-mMtEAJy_qIJK-R_rq/ratings"
+        routerLink="/admin/customers/{{customer.id}}/ratings"
         target="_blank">Visits and Ratings</a>
     </p>
     <p>
       <a
         class="btn btn-primary"
         role="button"
-        routerLink="/admin/customers/-M-mMtEAJy_qIJK-R_rq/details"
+        routerLink="/admin/customers/{{customer.id}}/details"
         target="_blank">Contacts and ID Details</a>
     </p>
   </div>

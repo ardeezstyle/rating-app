@@ -40,9 +40,6 @@ export class CenterComponent implements OnInit {
         this.programs = this.centersService.getProgramsByCenter(this.center.center);
 
         this.seats = this.centersService.getCenterSeats(this.center.center);
-
-
-        console.log(this.seats);
       }
     })
   }

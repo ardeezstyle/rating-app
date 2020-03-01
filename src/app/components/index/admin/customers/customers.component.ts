@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from 'src/app/models/commons';
-import { CustomerService } from 'src/app/services/customer.service';
+
+
+import { CentersService } from 'src/app/services/mock-center.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -8,17 +10,23 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit {
-  customers: Customer[];
+  customers: any[];
   isloading: boolean = false;
 
   constructor(
-    private cs: CustomerService
+    private route: ActivatedRoute,
+    private centersService: CentersService
   ) { }
 
   ngOnInit() {
 
 
-    
+
+    this.route.params.subscribe(params => {
+      const center = this.centersService.getCenter(params.id);
+      this.customers = this.centersService.getCenterCustomers(center.center);
+    })
+
     // this.isloading = true;
     // this.cs.getAllCustomers().subscribe(res => {
     //   this.customers = res;

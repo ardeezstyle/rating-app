@@ -3,6 +3,8 @@ import CENTERS from '../../mock/data-centers.json';
 
 import PROGRAMS from '../../mock/data-program.json';
 
+import CUSTOMERS from '../../mock/data-customers.json';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -140,6 +142,24 @@ export class CentersService {
     });
 
     return programs;
+  }
+
+
+  getAllCustomers() {
+    return CUSTOMERS.slice();
+  }
+
+  getCenterCustomers(center) {
+    return this.getAllCustomers().filter(cus => cus.center === center);
+  }
+
+  getCenterProgramCustomers(center, program) {
+    return this.getAllCustomers().filter(cus => cus.center === center && cus.program === program);
+  }
+
+
+  getCustomer(id: string) {
+    return this.getAllCustomers().find(cus => cus.id === id);
   }
 
 

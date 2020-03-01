@@ -1,1 +1,33 @@
-<p>details works!</p>
+<h2>Customer Details</h2>
+<pre>
+  id: {{customer.cus_id}}
+  First Name: {{customer.first_name}}
+  Second Name: {{customer.second_name}}
+  Address: {{customer.address}}
+  City: {{customer.city}}
+  State: {{customer.state}}
+  Country: {{customer.country}}
+  Pincode: {{customer.pincode}}
+
+  Email: {{customer.email}}
+  Phone: {{customer.phone}}
+
+  Center: {{customer.center}}
+  Program: {{customer.program}}
+  Cabin: {{customer.cabin}}
+  Tenure: {{customer.tenure}}
+  Joining Date: {{customer.joining_date | date: 'dd.MM.yyyy'}}
+  Program Start Date: {{customer.prog_start_date | date: 'dd.MM.yyyy'}}
+  Program End Date: {{customer.prog_end_date | date: 'dd.MM.yyyy'}}
+</pre>
+
+<button type="button" class="btn btn-primary" name="button" (click)="closeWindow()">Close</button>
+
+
+  <!--
+  id: "C0000012"
+  month_rating: 0
+  no_visits: 0
+  no_visits_month: 0
+  password: "6zDy7sLFbWOkLmM"
+  rating: 0 -->
