@@ -5,6 +5,8 @@ import PROGRAMS from '../../mock/data-program.json';
 
 import CUSTOMERS from '../../mock/data-customers.json';
 
+import RATINGS from '../../mock/data-ratings.json';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -163,4 +165,25 @@ export class CentersService {
   }
 
 
+  getRatings(cus_id: number) {
+    return RATINGS.slice().filter(rating => rating.cus_id === +cus_id);
+  }
+
+  getRatingsByCenter(center: string) {
+    const customers = this.getCenterCustomers(center);
+    const ratings = [];
+    customers.map(cus => {
+      const cus_ratings = [...this.getRatings(cus.cus_id)];
+      cus_ratings.map(center_cus => {
+          ratings.push( {...center_cus, first_name: cus.first_name, second_name: cus.second_name, cus_id: cus.cus_id, cabin: cus.cabin });
+      })
+    });
+
+    ratings.sort((a,b) => {
+      const dateA = new Date(a.visit_date_time);
+      const dateB = new Date(b.visit_date_time);
+      return dateA - dateB;
+    });
+    return ratings;
+  }
 }

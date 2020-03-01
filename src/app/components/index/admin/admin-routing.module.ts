@@ -23,12 +23,12 @@ import { DetailsComponent } from './customers/customer/details/details.component
           {path: 'dashboard', component: DashboardComponent},
           {path: 'center/:id', component: CenterComponent},
           {path: 'center/:id/customers', component: CustomersComponent},
-          {path: 'center/:id/ratings', component: RatingsComponent},
+          {path: 'center/:center_id/ratings', component: RatingsComponent},
 
           {path: 'customers', component: CustomersComponent},
           {path: 'customers/:id', component: CustomerComponent},
-          {path: 'customers/:id/ratings', component: RatingsComponent},
-          {path: 'customers/:id/details', component: DetailsComponent},
+          {path: 'customers/:customer_id/ratings', component: RatingsComponent},
+          {path: 'customers/:customer_id/details', component: DetailsComponent},
 
           {path: 'ratings', component: RatingsComponent},
           {path: '', redirectTo: 'dashboard', pathMatch: 'full'},

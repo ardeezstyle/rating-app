@@ -1,8 +1,52 @@
-<h2>Customers</h2>
-
+<div class="row" *ngIf="isCenter">
+  <div class="col-md-6">
+    CENTRE'S DETAILS: {{center.center}}/ CATEGORY-{{center.category}}/ {{center.city}}/ {{cur_date | date: 'dd.MM.yyyy'}}
+  </div>
+</div>
 
 <div class="row">
-  <div class="col-md-6">
-    CENTRE'S DETAILS: Z-02/ CATEGORY-B/ MAHABALIPURAM/ 23.02.2020
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sl. No.</th>
+          <th>VISIT TIME</th>
+          <th>VISIT DATE</th>
+          <th *ngIf="isCenter">ID.No</th>
+          <th *ngIf="isCenter">FIRST NAME</th>
+          <th *ngIf="isCenter">SECOND NAME</th>
+          <th *ngIf="isCenter">CABIN No.</th>
+          <th>OVERALL RATING</th>
+          <th>OVERALL RATING MADE ON</th>
+          <th>DETAIL RATING-A</th>
+          <th>DETAIL RATING-B</th>
+          <th>DETAIL RATING-C</th>
+          <th>DETAIL RATING-D</th>
+          <th>DETAIL RATING-E</th>
+          <th>COMMENTS</th>
+          <th>DETAIL RATING MADE ON</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rating of ratings; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{rating.visit_date_time | date: 'h:mm a'}}</td>
+          <td>{{rating.visit_date_time | date: 'dd.MM.yyyy'}}</td>
+          <td *ngIf="isCenter">{{rating.cus_id}}</td>
+          <td *ngIf="isCenter">{{rating.first_name}}</td>
+          <td *ngIf="isCenter">{{rating.second_name}}</td>
+          <td *ngIf="isCenter">{{rating.cabin}}</td>
+          <td>{{rating.rating}}</td>
+          <td>{{rating.rating_date_time | date: 'dd.MM.yyyy h:mm a'}}</td>
+          <td>{{rating.rating_a}}</td>
+          <td>{{rating.rating_b}}</td>
+          <td>{{rating.rating_c}}</td>
+          <td>{{rating.rating_d}}</td>
+          <td>{{rating.rating_e}}</td>
+          <td>{{rating.comments}}</td>
+          <td>{{rating.detail_rating_date_time | date: 'dd.MM.yyyy h:mm a'}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
