@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 
 import { NotFoundComponent } from '../../not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { OwnersComponent } from './owners/owners.component';
-import { OwnerComponent } from './owners/owner/owner.component';
-import { CenterComponent } from './owners/centers/center/center.component';
 import { CustomerComponent } from './customers/customer/customer.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AdminComponent } from './admin.component';
-import { CentersComponent } from './owners/centers/centers.component';
+import { CenterComponent } from './center/center.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { DetailsComponent } from './customers/customer/details/details.component';
+
 
 
 @NgModule({
@@ -21,12 +21,16 @@ import { CentersComponent } from './owners/centers/centers.component';
       {
         path: 'admin', component: AdminComponent, children: [
           {path: 'dashboard', component: DashboardComponent},
-          {path: 'owners', component: OwnersComponent},
-          {path: 'owners/:id', component: OwnerComponent},
-          {path: 'centers', component: CentersComponent},
-          {path: 'owners/:id/centers/:center', component: CenterComponent},
+          {path: 'center', component: CenterComponent},
+          {path: 'center/:center/customers', component: CustomersComponent},
+          {path: 'center/:center/ratings', component: RatingsComponent},
+
           {path: 'customers', component: CustomersComponent},
           {path: 'customers/:id', component: CustomerComponent},
+          {path: 'customers/:id/ratings', component: RatingsComponent},
+          {path: 'customers/:id/details', component: DetailsComponent},
+
+          {path: 'ratings', component: RatingsComponent},
           {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
           {path: '**', component: NotFoundComponent}
         ]

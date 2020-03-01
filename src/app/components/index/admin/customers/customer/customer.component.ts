@@ -23,6 +23,11 @@ export class CustomerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+  }
+
+
+  private getData() {
     this.isloading = true;
     this.route.params.subscribe(res => {
       forkJoin(

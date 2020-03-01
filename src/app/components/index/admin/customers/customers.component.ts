@@ -16,11 +16,14 @@ export class CustomersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isloading = true;
-    this.cs.getAllCustomers().subscribe(res => {
-      this.customers = res;
-      this.isloading = false;
-    });
+
+
+    
+    // this.isloading = true;
+    // this.cs.getAllCustomers().subscribe(res => {
+    //   this.customers = res;
+    //   this.isloading = false;
+    // });
   }
 
 }

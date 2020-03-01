@@ -5,12 +5,10 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { CustomerComponent } from './customers/customer/customer.component';
 import { CustomersComponent } from './customers/customers.component';
-import { OwnersComponent } from './owners/owners.component';
-import { OwnerComponent } from './owners/owner/owner.component';
-import { CentersComponent } from './owners/centers/centers.component';
-import { CenterComponent } from './owners/centers/center/center.component';
-import { AddressComponent } from '../../shared/address/address.component';
 import { SharedModule } from '../../shared/shared.module';
+import { CenterComponent } from './center/center.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { DetailsComponent } from './customers/customer/details/details.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +16,9 @@ import { SharedModule } from '../../shared/shared.module';
     AdminComponent,
     CustomerComponent,
     CustomersComponent,
-    OwnersComponent,
-    OwnerComponent,
-    CentersComponent,
-    CenterComponent
+    CenterComponent,
+    RatingsComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,

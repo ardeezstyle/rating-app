@@ -1,4 +1,77 @@
-<nav aria-label="breadcrumb">
+
+<h2>CUSTOMER Overview</h2>
+
+<div class="row">
+  <div class="col-md-6">
+    CUSTOMER INFORMATION: 7/ JOHN DOE/ S-3/ 23.02.2020
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID.No</th>
+          <th>FIRST NAME</th>
+          <th>SECOND NAME</th>
+          <th>CABIN No.</th>
+          <th>OVERALL AGGREGATE RATING</th>
+          <th>NUMBER OF VISITS</th>
+          <th>MONTHLY AGGREGATE RATING.JAN-2020</th>
+          <th>NUMBER OF VISITS in Jan</th>
+          <th>PROGRAM TYPE</th>
+          <th>TENURE</th>
+          <th>JOINING DATE</th>
+          <th>PROGRAM STARTING</th>
+          <th>PROGRAM ENDING ON</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>7</td>
+          <td>JOHN</td>
+          <td>DOE</td>
+          <td>S-3</td>
+          <td>4.54</td>
+          <td>18</td>
+          <td>4.75</td>
+          <td>5</td>
+          <td>SMALL</td>
+          <td>6</td>
+          <td>18.12.2019</td>
+          <td>05.01.2020</td>
+          <td>05.06.2020</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      <a
+        class="btn btn-primary"
+        role="button"
+        routerLink="/admin/customers/-M-mMtEAJy_qIJK-R_rq/ratings"
+        target="_blank">Visits and Ratings</a>
+    </p>
+    <p>
+      <a
+        class="btn btn-primary"
+        role="button"
+        routerLink="/admin/customers/-M-mMtEAJy_qIJK-R_rq/details"
+        target="_blank">Contacts and ID Details</a>
+    </p>
+  </div>
+</div>
+
+
+
+
+<!-- <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink="/admin/customers">All Customers</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{customer_name}}</li>
@@ -55,4 +128,4 @@ Date of Joining:
       <td>{{rating.comment}}</td>
     </tr>
   </tbody>
-</table>
+</table> -->

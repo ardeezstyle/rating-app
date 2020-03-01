@@ -18,14 +18,22 @@ export class CenterComponent implements OnInit {
   owner_name: string = '';
   center_name: string = '';
 
+  tabs = {
+    customers: 'LIST OF CUSTOMERS',
+    ratings: 'RATINGS BY CUSTOMERS'
+  }
+  selectedTab: string = this.tabs.customers;
+
   constructor(
     private route: ActivatedRoute,
     private os: OwnerService,
     private rs: RatingService
-  ) { }
+  ) {
+    this.selectedTab = this.tabs.customers;
+  }
 
   ngOnInit() {
-    this.getData();
+    // this.getData();
   }
 
   private getData() {
@@ -50,4 +58,9 @@ export class CenterComponent implements OnInit {
     return this.owner_name;
   }
 
+
+  show(event: any) {
+    console.log(event.currentTarget.textContent);
+    this.selectedTab = event.currentTarget.textContent;
+  }
 }

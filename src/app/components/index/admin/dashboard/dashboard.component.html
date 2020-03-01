@@ -1,4 +1,213 @@
-<app-loading *ngIf="loading"></app-loading>
+<div class="row">
+  <div class="col-md-12">
+    <form style="margin-bottom: 10px;">
+      <span>
+        <input
+          type="search"
+          class="form-control"
+          id="search-input"
+          placeholder="Search Centre number/pincode/city/aggregate ratings/customer name/customer id number/customer location/Franchisee owner's name"
+          aria-label="Search for..."
+          autocomplete="off"
+          spellcheck="false" />
+      </span>
+    </form>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Total # of Centers</th>
+          <th>Average Overall Ratings of All Centers</th>
+          <th>Average Monthly Ratings of All Centers [Jan 2020]</th>
+          <th>Total # of Seats Available from All Centers</th>
+          <th>Current Total # of Customers from All Centers</th>
+          <th>Current Total # of Vacancies from All Centers</th>
+          <th>Total # of Visits from All Centers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>9</td>
+          <td>4.21</td>
+          <td>4.37</td>
+          <td>183</td>
+          <td>164</td>
+          <td>19</td>
+          <td>459</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-sm-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sl.No.</th>
+          <th>PROGRAM</th>
+          <th>TOTAL</th>
+          <th>OCCUPIED</th>
+          <th>VACANT</th>
+          <th>TOTAL VISITS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>SMALL</td>
+          <td>31</td>
+          <td>29</td>
+          <td>2</td>
+          <td>95</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>MEDIUM</td>
+          <td>27</td>
+          <td>24</td>
+          <td>3</td>
+          <td>142</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>LARGE</td>
+          <td>18</td>
+          <td>15</td>
+          <td>3</td>
+          <td>94</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>XTRA LARGE</td>
+          <td>11</td>
+          <td>9</td>
+          <td>2</td>
+          <td>54</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>XXL</td>
+          <td>9</td>
+          <td>6</td>
+          <td>3</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>CUSTOM</td>
+          <td>4</td>
+          <td>2</td>
+          <td>2</td>
+          <td>10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sl.No:</th>
+          <th>RANK BY HIGHEST/ LOWEST RATING</th>
+          <th>CENTRE'S NUMBER</th>
+          <th>CENTRE'S CATEGORY</th>
+          <th>CENTRE'S OVERALL AGGREGATE RATINGS</th>
+          <th>CENTRE'S MONTHLY AGGREGATE RATING JAN-2020</th>
+          <th>CENTRE'S PINCODE</th>
+          <th>CENTRE'S CITY</th>
+          <th>TOTAL SEATS</th>
+          <th>CURRENT No. OF CUSTOMERS</th>
+          <th>VACANCY</th>
+          <th>TOTAL No. OF CUSTOMER VISITS- JAN-2020</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td><a routerLink="/admin/center" target="_blank">Z-05</a></td>
+          <td>B</td>
+          <td>4.95</td>
+          <td>4.57</td>
+          <td>605104</td>
+          <td>PONDICHERRY</td>
+          <td>27</td>
+          <td>23</td>
+          <td>4</td>
+          <td>144</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>2</td>
+          <td><a routerLink="/admin/center" target="_blank">Z-03</a></td>
+          <td>C</td>
+          <td>4.32</td>
+          <td>4.42</td>
+          <td>600007</td>
+          <td>CHENNAI</td>
+          <td>14</td>
+          <td>14</td>
+          <td>0</td>
+          <td>68</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>3</td>
+          <td><a routerLink="/admin/center" target="_blank">Z-02</a></td>
+          <td>B</td>
+          <td>3.34</td>
+          <td>3.91</td>
+          <td>603104</td>
+          <td>MAHABALIPURAM</td>
+          <td>18</td>
+          <td>17</td>
+          <td>1</td>
+          <td>97</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>4</td>
+          <td><a routerLink="/admin/center" target="_blank">Z-01</a></td>
+          <td>A</td>
+          <td>3.33</td>
+          <td>4.6</td>
+          <td>643001</td>
+          <td>OOTY</td>
+          <td>10</td>
+          <td>7</td>
+          <td>3</td>
+          <td>34</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>5</td>
+          <td><a routerLink="/admin/center" target="_blank">Z-04</a></td>
+          <td>A</td>
+          <td>3.15</td>
+          <td>4.74</td>
+          <td>605102</td>
+          <td>PONDICHERRY</td>
+          <td>31</td>
+          <td>24</td>
+          <td>7</td>
+          <td>68</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <app-loading *ngIf="loading"></app-loading>
 <div class="jumbotron" *ngIf="!loading">
   <div class="row w-100">
       <div class="col-md-4">
@@ -23,4 +232,4 @@
           </div>
       </div>
    </div>
-</div>
+</div> -->
