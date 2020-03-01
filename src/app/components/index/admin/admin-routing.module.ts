@@ -21,9 +21,9 @@ import { DetailsComponent } from './customers/customer/details/details.component
       {
         path: 'admin', component: AdminComponent, children: [
           {path: 'dashboard', component: DashboardComponent},
-          {path: 'center', component: CenterComponent},
-          {path: 'center/:center/customers', component: CustomersComponent},
-          {path: 'center/:center/ratings', component: RatingsComponent},
+          {path: 'center/:id', component: CenterComponent},
+          {path: 'center/:id/customers', component: CustomersComponent},
+          {path: 'center/:id/ratings', component: RatingsComponent},
 
           {path: 'customers', component: CustomersComponent},
           {path: 'customers/:id', component: CustomerComponent},

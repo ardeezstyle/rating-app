@@ -1,3 +1,19 @@
+
+export class Program {
+  name?: string; //<th>PROGRAM</th>
+  total?: number; //<th>TOTAL</th>
+  occupied?: number; //<th>OCCUPIED</th>
+  vacant?: number; //<th>VACANT</th>
+  total_visits?: number; //<th>TOTAL VISITS</th>
+}
+
+
+
+
+
+
+
+
 export class Admin{
   id?: string;
   email: string;

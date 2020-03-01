@@ -10,7 +10,7 @@
 
 <div class="row">
   <div class="col-md-6">
-    CENTRE'S DETAILS: Z-02/ CATEGORY-B/ MAHABALIPURAM/ 23.02.2020
+    CENTRE'S DETAILS: {{center.center}}/ CATEGORY-{{center.category}}/ {{center.city}}/ {{date | date: 'dd.MM.yyyy'}}
   </div>
 </div>
 
@@ -30,13 +30,13 @@
       </thead>
       <tbody>
         <tr>
-          <td>3</td>
-          <td>27</td>
-          <td>23</td>
-          <td>4</td>
-          <td>3.34</td>
-          <td>3.91</td>
-          <td>144</td>
+          <td>{{center.rank}}</td>
+          <td>{{center.total_customers}}</td>
+          <td>{{center.current_customers}}</td>
+          <td>{{center.vacancy}}</td>
+          <td>{{center.rating}}</td>
+          <td>{{center.monthly_rating}}</td>
+          <td>{{center.customer_visit}}</td>
         </tr>
       </tbody>
     </table>
@@ -46,68 +46,7 @@
 
 <div class="row">
   <div class="col-md-8 col-sm-12">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Sl.No.</th>
-          <th>PROGRAM</th>
-          <th>TOTAL</th>
-          <th>OCCUPIED</th>
-          <th>VACANT</th>
-          <th>TOTAL VISITS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>SMALL</td>
-          <td>31</td>
-          <td>29</td>
-          <td>2</td>
-          <td>95</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>MEDIUM</td>
-          <td>27</td>
-          <td>24</td>
-          <td>3</td>
-          <td>142</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>LARGE</td>
-          <td>18</td>
-          <td>15</td>
-          <td>3</td>
-          <td>94</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>XTRA LARGE</td>
-          <td>11</td>
-          <td>9</td>
-          <td>2</td>
-          <td>54</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>XXL</td>
-          <td>9</td>
-          <td>6</td>
-          <td>3</td>
-          <td>16</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>CUSTOM</td>
-          <td>4</td>
-          <td>2</td>
-          <td>2</td>
-          <td>10</td>
-        </tr>
-      </tbody>
-    </table>
+    <app-programs [programs]="programs"></app-programs>
   </div>
 </div>
 
@@ -118,14 +57,14 @@
         class="btn btn-primary"
         role="button"
         routerLink="/admin/center/centerid/customers"
-        target="_blank">{{tabs.customers}}</a>
+        target="_blank">LIST OF CUSTOMERS</a>
     </p>
     <p>
       <a
         class="btn btn-primary"
         role="button"
         routerLink="/admin/center/centerid/ratings"
-        target="_blank">{{tabs.ratings}}</a>
+        target="_blank">RATINGS BY CUSTOMERS</a>
     </p>
   </div>
 </div>

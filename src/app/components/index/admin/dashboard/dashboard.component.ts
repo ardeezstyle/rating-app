@@ -3,8 +3,8 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { OwnerService } from 'src/app/services/owner.service';
 import { forkJoin } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import CENTERS from '../../../../../mock/data-centers.json';
-
+import { CentersService } from 'src/app/services/mock-center.service';
+import { Program } from 'src/app/models/commons';
 
 
 @Component({
@@ -17,6 +17,8 @@ export class DashboardComponent implements OnInit {
   filtered: boolean = false;
 
   centers: any[];
+  programs: Program[];
+  total_seats: any;
 
   owner_count: number = 0;
   center_count: number = 0;
@@ -24,13 +26,16 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private centersService: CentersService,
     private cs: CustomerService,
     private os: OwnerService
   ) { }
 
   ngOnInit() {
-    this.centers = CENTERS;
-    // this.getData();
+    this.centers = this.centersService.getAllCenters();
+    this.programs = this.centersService.getPrograms();
+    this.total_seats = this.centersService.getAllSeatsCount();
+
     this.route.queryParams.subscribe(params => {
       this.filtered = Object.keys(params).length ? true : false;
       if(this.filtered) this.filterData(params);
@@ -38,11 +43,10 @@ export class DashboardComponent implements OnInit {
   }
 
   private filterData(condition: any) {
+    console.log(this.centers);
     Object.keys(condition).map(key => console.log(key, condition[key]));
     const key = Object.keys(condition)[0];
-    this.centers = this.centers.filter(center => center[key] === condition[key]);
-
-    console.log(this.centers, key, condition[key]);
+    this.centers = this.centers.filter(center => center[key] == condition[key]);
   }
 
   closeWindow() {

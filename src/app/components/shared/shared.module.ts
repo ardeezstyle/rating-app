@@ -7,15 +7,16 @@ import { LoadingComponent } from './loading/loading.component';
 import { AddressComponent } from './address/address.component';
 import { HeaderComponent } from './header/header.component';
 import { StarComponent } from './star/star.component';
+import { ProgramsComponent } from './programs/programs.component';
 
 
 @NgModule({
-  declarations: [LoadingComponent, AddressComponent, HeaderComponent, StarComponent],
+  declarations: [LoadingComponent, AddressComponent, HeaderComponent, StarComponent, ProgramsComponent],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
   ],
-  exports:  [LoadingComponent, AddressComponent, HeaderComponent, StarComponent]
+  exports:  [LoadingComponent, AddressComponent, HeaderComponent, StarComponent, ProgramsComponent]
 })
 export class SharedModule { }

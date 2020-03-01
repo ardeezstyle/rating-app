@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Sl.No.</th>
+      <th>PROGRAM</th>
+      <th>TOTAL</th>
+      <th>OCCUPIED</th>
+      <th>VACANT</th>
+      <th>TOTAL VISITS</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let program of programs; let i=index">
+      <td>{{ i+1 }}</td>
+      <td>{{program.program}}</td>
+      <td>{{program.total}}</td>
+      <td>{{program.occupied}}</td>
+      <td>{{program.vacant}}</td>
+      <td>{{program.total_visits}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -19,7 +19,7 @@
     <tr *ngFor="let center of centers; let i=index">
       <td>{{i+1}}</td>
       <td>{{center.rank}}</td>
-      <td><a routerLink="/admin/center" target="_blank">{{center.center}}</a></td>
+      <td><a routerLink="/admin/center/{{center.id}}" target="_blank">{{center.center}}</a></td>
       <td><a routerLink="/admin/dashboard" [queryParams]="{ category: center.category }" target="_blank">{{center.category}}</a></td>
       <td><a routerLink="/admin/dashboard" [queryParams]="{ rating: center.rating }" target="_blank">{{center.rating}}</a></td>
       <td><a routerLink="/admin/dashboard" [queryParams]="{ monthly_rating: center.monthly_rating }" target="_blank">{{center.monthly_rating}}</a></td>

@@ -39,12 +39,12 @@
       </thead>
       <tbody>
         <tr>
-          <td>9</td>
+          <td>{{centers.length}}</td>
           <td>4.21</td>
           <td>4.37</td>
-          <td>183</td>
-          <td>164</td>
-          <td>19</td>
+          <td>{{total_seats.total}}</td>
+          <td>{{total_seats.occupied}}</td>
+          <td>{{total_seats.vacant}}</td>
           <td>459</td>
         </tr>
       </tbody>
@@ -54,68 +54,7 @@
 
 <div class="row" *ngIf="!filtered">
   <div class="col-md-8 col-sm-12">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Sl.No.</th>
-          <th>PROGRAM</th>
-          <th>TOTAL</th>
-          <th>OCCUPIED</th>
-          <th>VACANT</th>
-          <th>TOTAL VISITS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>SMALL</td>
-          <td>31</td>
-          <td>29</td>
-          <td>2</td>
-          <td>95</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>MEDIUM</td>
-          <td>27</td>
-          <td>24</td>
-          <td>3</td>
-          <td>142</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>LARGE</td>
-          <td>18</td>
-          <td>15</td>
-          <td>3</td>
-          <td>94</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>XTRA LARGE</td>
-          <td>11</td>
-          <td>9</td>
-          <td>2</td>
-          <td>54</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>XXL</td>
-          <td>9</td>
-          <td>6</td>
-          <td>3</td>
-          <td>16</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>CUSTOM</td>
-          <td>4</td>
-          <td>2</td>
-          <td>2</td>
-          <td>10</td>
-        </tr>
-      </tbody>
-    </table>
+    <app-programs [programs]="programs"></app-programs>
   </div>
 </div>
 
