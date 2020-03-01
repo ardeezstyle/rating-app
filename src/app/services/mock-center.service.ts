@@ -182,7 +182,7 @@ export class CentersService {
     ratings.sort((a,b) => {
       const dateA = new Date(a.visit_date_time);
       const dateB = new Date(b.visit_date_time);
-      return dateA - dateB;
+      return +dateA - +dateB;
     });
     return ratings;
   }
