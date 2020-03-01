@@ -1,0 +1,34 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Sl.No:</th>
+      <th>RANK BY HIGHEST/ LOWEST RATING</th>
+      <th>CENTRE'S NUMBER</th>
+      <th>CENTRE'S CATEGORY</th>
+      <th>CENTRE'S OVERALL AGGREGATE RATINGS</th>
+      <th>CENTRE'S MONTHLY AGGREGATE RATING JAN-2020</th>
+      <th>CENTRE'S PINCODE</th>
+      <th>CENTRE'S CITY</th>
+      <th>TOTAL SEATS</th>
+      <th>CURRENT No. OF CUSTOMERS</th>
+      <th>VACANCY</th>
+      <th>TOTAL No. OF CUSTOMER VISITS- JAN-2020</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let center of centers; let i=index">
+      <td>{{i+1}}</td>
+      <td>{{center.rank}}</td>
+      <td><a routerLink="/admin/center" target="_blank">{{center.center}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ category: center.category }" target="_blank">{{center.category}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ rating: center.rating }" target="_blank">{{center.rating}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ monthly_rating: center.monthly_rating }" target="_blank">{{center.monthly_rating}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ pincode: center.pincode }" target="_blank">{{center.pincode}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ city: center.city }" target="_blank">{{center.city}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ total_customers: center.total_customers }" target="_blank">{{center.total_customers}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ current_customers: center.current_customers }" target="_blank">{{center.current_customers}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ vacancy: center.vacancy }" target="_blank">{{center.vacancy}}</a></td>
+      <td><a routerLink="/admin/dashboard" [queryParams]="{ customer_visit: center.customer_visit }" target="_blank">{{center.customer_visit}}</a></td>
+    </tr>
+  </tbody>
+</table>

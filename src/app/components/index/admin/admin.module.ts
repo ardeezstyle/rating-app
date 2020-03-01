@@ -9,6 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { CenterComponent } from './center/center.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { DetailsComponent } from './customers/customer/details/details.component';
+import { CentersComponent } from './centers/centers.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DetailsComponent } from './customers/customer/details/details.component
     CustomersComponent,
     CenterComponent,
     RatingsComponent,
-    DetailsComponent
+    DetailsComponent,
+    CentersComponent
   ],
   imports: [
     CommonModule,

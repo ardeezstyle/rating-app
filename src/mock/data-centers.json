@@ -1,0 +1,67 @@
+[
+  {
+    "rank": 1,
+    "center" :"Z-05",
+    "category" :"B",
+    "rating": "4.95",
+    "monthly_rating": "4.57",
+    "pincode": "605104",
+    "city": "PONDICHERRY",
+    "total_customers": "27",
+    "current_customers": "23",
+    "vacancy": "4",
+    "customer_visit": "144"
+  },
+  {
+    "rank": 2,
+    "center": "Z-03",
+    "category": "C",
+    "rating": "4.32",
+    "monthly_rating": "4.42",
+    "pincode": "600007",
+    "city": "CHENNAI",
+    "total_customers": "14",
+    "current_customers": "14",
+    "vacancy": "0",
+    "customer_visit": "68"
+  },
+  {
+    "rank": 3,
+    "center": "Z-02",
+    "category": "B",
+    "rating": "3.34",
+    "monthly_rating": "3.91",
+    "pincode": "603104",
+    "city": "MAHABALIPURAM",
+    "total_customers": "18",
+    "current_customers": "17",
+    "vacancy": "1",
+    "customer_visit": "97"
+  },
+  {
+    "rank": 4,
+    "center": "Z-01",
+    "category": "A",
+    "rating": "3.3",
+    "monthly_rating": "4.6",
+    "pincode": "643001",
+    "city": "OOTY",
+    "total_customers": "10",
+    "current_customers": "7",
+    "vacancy": "3",
+    "customer_visit": "34"
+  },
+  {
+    "rank": 5,
+    "center": "Z-04",
+    "category": "A",
+    "rating": "3.15",
+    "monthly_rating": "4.74",
+    "pincode": "605102",
+    "city": "PONDICHERRY",
+    "total_customers": "31",
+    "current_customers": "24",
+    "vacancy": "7",
+    "customer_visit": "68"
+  }
+]

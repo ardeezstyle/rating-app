@@ -1,22 +1,29 @@
-<div class="row">
+<div class="row" *ngIf="!filtered">
   <div class="col-md-12">
     <form style="margin-bottom: 10px;">
-      <span>
-        <input
-          type="search"
-          class="form-control"
-          id="search-input"
-          placeholder="Search Centre number/pincode/city/aggregate ratings/customer name/customer id number/customer location/Franchisee owner's name"
-          aria-label="Search for..."
-          autocomplete="off"
-          spellcheck="false" />
-      </span>
+      <div class="row">
+        <div class="col-md-11">
+          <span>
+            <input
+              type="search"
+              class="form-control"
+              id="search-input"
+              placeholder="Search Centre number/pincode/city/aggregate ratings/customer name/customer id number/customer location/Franchisee owner's name"
+              aria-label="Search for..."
+              autocomplete="off"
+              spellcheck="false" />
+          </span>
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-primary btn-block" name="button">Search</button>
+        </div>
+      </div>
     </form>
   </div>
 </div>
 
 
-<div class="row">
+<div class="row" *ngIf="!filtered">
   <div class="col-md-12">
     <table class="table table-bordered">
       <thead>
@@ -45,7 +52,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="!filtered">
   <div class="col-md-8 col-sm-12">
     <table class="table table-bordered">
       <thead>
@@ -112,98 +119,12 @@
   </div>
 </div>
 
+<div class="" *ngIf="filtered" style="margin-bottom: 10px;">
+  <button class="btn btn-primary btn-lg" type="button" name="button" (click)="closeWindow()">Close</button>
+</div>
 <div class="row">
   <div class="col-md-12">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Sl.No:</th>
-          <th>RANK BY HIGHEST/ LOWEST RATING</th>
-          <th>CENTRE'S NUMBER</th>
-          <th>CENTRE'S CATEGORY</th>
-          <th>CENTRE'S OVERALL AGGREGATE RATINGS</th>
-          <th>CENTRE'S MONTHLY AGGREGATE RATING JAN-2020</th>
-          <th>CENTRE'S PINCODE</th>
-          <th>CENTRE'S CITY</th>
-          <th>TOTAL SEATS</th>
-          <th>CURRENT No. OF CUSTOMERS</th>
-          <th>VACANCY</th>
-          <th>TOTAL No. OF CUSTOMER VISITS- JAN-2020</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-          <td><a routerLink="/admin/center" target="_blank">Z-05</a></td>
-          <td>B</td>
-          <td>4.95</td>
-          <td>4.57</td>
-          <td>605104</td>
-          <td>PONDICHERRY</td>
-          <td>27</td>
-          <td>23</td>
-          <td>4</td>
-          <td>144</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>2</td>
-          <td><a routerLink="/admin/center" target="_blank">Z-03</a></td>
-          <td>C</td>
-          <td>4.32</td>
-          <td>4.42</td>
-          <td>600007</td>
-          <td>CHENNAI</td>
-          <td>14</td>
-          <td>14</td>
-          <td>0</td>
-          <td>68</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>3</td>
-          <td><a routerLink="/admin/center" target="_blank">Z-02</a></td>
-          <td>B</td>
-          <td>3.34</td>
-          <td>3.91</td>
-          <td>603104</td>
-          <td>MAHABALIPURAM</td>
-          <td>18</td>
-          <td>17</td>
-          <td>1</td>
-          <td>97</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>4</td>
-          <td><a routerLink="/admin/center" target="_blank">Z-01</a></td>
-          <td>A</td>
-          <td>3.33</td>
-          <td>4.6</td>
-          <td>643001</td>
-          <td>OOTY</td>
-          <td>10</td>
-          <td>7</td>
-          <td>3</td>
-          <td>34</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>5</td>
-          <td><a routerLink="/admin/center" target="_blank">Z-04</a></td>
-          <td>A</td>
-          <td>3.15</td>
-          <td>4.74</td>
-          <td>605102</td>
-          <td>PONDICHERRY</td>
-          <td>31</td>
-          <td>24</td>
-          <td>7</td>
-          <td>68</td>
-        </tr>
-      </tbody>
-    </table>
+    <app-centers [centers]="centers"></app-centers>
   </div>
 </div>
 

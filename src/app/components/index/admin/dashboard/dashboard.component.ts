@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
 import { OwnerService } from 'src/app/services/owner.service';
 import { forkJoin } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import CENTERS from '../../../../../mock/data-centers.json';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -10,16 +14,39 @@ import { forkJoin } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
   loading: boolean;
+  filtered: boolean = false;
+
+  centers: any[];
+
   owner_count: number = 0;
   center_count: number = 0;
   customer_count: number = 0;
+
   constructor(
+    private route: ActivatedRoute,
     private cs: CustomerService,
     private os: OwnerService
   ) { }
 
   ngOnInit() {
+    this.centers = CENTERS;
     // this.getData();
+    this.route.queryParams.subscribe(params => {
+      this.filtered = Object.keys(params).length ? true : false;
+      if(this.filtered) this.filterData(params);
+    });
+  }
+
+  private filterData(condition: any) {
+    Object.keys(condition).map(key => console.log(key, condition[key]));
+    const key = Object.keys(condition)[0];
+    this.centers = this.centers.filter(center => center[key] === condition[key]);
+
+    console.log(this.centers, key, condition[key]);
+  }
+
+  closeWindow() {
+    window.close();
   }
 
   getData() {
